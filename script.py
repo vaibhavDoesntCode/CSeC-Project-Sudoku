@@ -48,7 +48,7 @@ io.recvline()
 
 
 
-while True:
+for counter in range(420):
     output = io.recvuntil("E")
     matrix = np.zeros(shape=(9,9), dtype=int)
     row, col = 0, 0
@@ -75,12 +75,12 @@ while True:
         for j in range(9):
                 if matrixInitial[i][j] == 0:
                         io.send(f"{i} {j} {matrix[i][j]}\n".encode())
-                        print(line)
                         for k in range(14):
                                 io.recvline()  
                                                     
                         io.recvuntil(":")
 
+out_var = io.recv()
+print(out_var)
 
 
-io.interactive()
